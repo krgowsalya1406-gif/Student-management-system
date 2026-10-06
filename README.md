@@ -264,8 +264,3 @@ If you find this project useful, consider giving the repository a ⭐ on GitHub.
 
 ---
 
-### 📌 Project Status
-
-**Completed / Academic Project**
-
-Built as a practical project to demonstrate **Python + MySQL database integration and CRUD-based student management**.
