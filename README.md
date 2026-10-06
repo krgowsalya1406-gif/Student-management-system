@@ -125,34 +125,7 @@ Upcoming Exams           5
 
 
 
-🏗️ System Architecture
-                         ┌───────────────────┐
-                         │       ADMIN       │
-                         └─────────┬─────────┘
-                                   │
-                                   ▼
-                         ┌───────────────────┐
-                         │     DASHBOARD     │
-                         └─────────┬─────────┘
-                                   │
-             ┌─────────────────────┼─────────────────────┐
-             │                     │                     │
-             ▼                     ▼                     ▼
-        👨‍🎓 Students          👨‍🏫 Teachers        🏛️ Departments
-             │                     │                     │
-             └─────────────────────┼─────────────────────┘
-                                   │
-                                   ▼
-                              📚 Courses
-                                   │
-                    ┌──────────────┼──────────────┐
-                    │              │              │
-                    ▼              ▼              ▼
-                 📝 Exams      📅 Attendance     💰 Fees
-                    │              │              │
-                    ▼              ▼              ▼
-                📈 Results      📄 Reports     📢 Notices
-
+               
   
 🛠️ Technology Stack
 
@@ -165,36 +138,8 @@ MySQL	Database management
 
 
 
-📂 Project Structure
-Student-Management-System/
-│
-├── index.html
-├── dashboard.html
-│
-├── css/
-│   └── style.css
-│
-├── js/
-│   └── script.js
-│
-├── pages/
-│   ├── students.html
-│   ├── teachers.html
-│   ├── departments.html
-│   ├── courses.html
-│   ├── exams.html
-│   ├── results.html
-│   ├── attendance.html
-│   ├── fees.html
-│   ├── announcements.html
-│   ├── assignments.html
-│   └── reports.html
-│
-├── assets/
-│   ├── images/
-│   └── icons/
-│
-└── README.md
+
+
 
 
 The system can support different types of users:
