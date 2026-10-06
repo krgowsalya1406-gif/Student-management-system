@@ -11,11 +11,11 @@ The project demonstrates the integration of **Python with MySQL** and the implem
 
 ## ✨ Features
 
-* ➕ Add new student records
-* 📋 View all student records
-* 🔍 Search student details
-* ✏️ Update existing student information
-* 🗑️ Delete student records
+* Add new student records
+*  View all student records
+*  Search student details
+*  Update existing student information
+*  Delete student records
 * 💾 Store data using MySQL
 * 🔄 Perform complete CRUD operations
 * ⚡ Simple and user-friendly interface
