@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Departments - Student Management System</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f6fb;
+    color: #20213a;
+}
+
+/* HEADER */
+.header {
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    color: white;
+    padding: 25px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    font-size: 28px;
+}
+
+.header p {
+    margin-top: 6px;
+    opacity: 0.85;
+}
+
+.back-btn {
+    text-decoration: none;
+    color: white;
+    background: rgba(255,255,255,0.18);
+    padding: 11px 18px;
+    border-radius: 10px;
+}
+
+/* MAIN */
+.container {
+    max-width: 1150px;
+    margin: 35px auto;
+    padding: 0 20px;
+}
+
+.page-title {
+    margin-bottom: 25px;
+}
+
+.page-title h2 {
+    font-size: 25px;
+}
+
+.page-title p {
+    color: #777;
+    margin-top: 7px;
+}
+
+/* DEPARTMENT GRID */
+.department-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+}
+
+.department-card {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 7px 22px rgba(0,0,0,0.07);
+    cursor: pointer;
+    transition: 0.3s;
+    border: 1px solid #edf0f6;
+}
+
+.department-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+.dept-icon {
+    width: 60px;
+    height: 60px;
+    background: #eef2ff;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    margin-bottom: 18px;
+}
+
+.department-card h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.department-card p {
+    color: #777;
+    font-size: 14px;
+}
+
+.dept-code {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 6px 11px;
+    border-radius: 7px;
+    background: #f1f0ff;
+    color: #4f46e5;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* DETAILS PAGE */
+#detailsPage {
+    display: none;
+}
+
+.details-box {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.details-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #eee;
+}
+
+.details-icon {
+    width: 75px;
+    height: 75px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 38px;
+    color: white;
+}
+
+.details-header h2 {
+    font-size: 25px;
+}
+
+.details-header p {
+    color: #777;
+    margin-top: 6px;
+}
+
+
+.section-title {
+    margin: 28px 0 18px;
+    font-size: 20px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 17px;
+}
+
+
+
+.info-card {
+    background: #f8f9fd;
+    border: 1px solid #edf0f6;
+    padding: 18px;
+    border-radius: 13px;
+}
+
+.info-card span {
+    display: block;
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 7px;
+}
+
+.info-card strong {
+    font-size: 15px;
+}
+
+
+.about {
+    background: #f8f9fd;
+    padding: 22px;
+    border-radius: 14px;
+    line-height: 1.8;
+    color: #666;
+}
+
+
+.staff-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+}
+
+.staff-card {
+    background: #f8f9fd;
+    border: 1px solid #edf0f6;
+    padding: 20px;
+    border-radius: 14px;
+}
+
+.staff-photo {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: #e0e7ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    margin-bottom: 13px;
+}
+
+.staff-card h4 {
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.staff-card p {
+    color: #777;
+    font-size: 13px;
+}
+
+
+.back-list {
+    margin-bottom: 20px;
+    border: none;
+    background: #4f46e5;
+    color: white;
+    padding: 11px 18px;
+    border-radius: 9px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+@media(max-width: 850px) {
+    .department-grid,
+    .staff-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 600px) {
+    .department-grid,
+    .staff-grid,
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .header {
+        padding: 20px;
+    }
+
+    .header h1 {
+        font-size: 22px;
+    }
+
+    .details-box {
+        padding: 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+
+<header class="header">
+    <div>
+        <h1>🏫 Departments</h1>
+        <p>Student Management System</p>
+    </div>
+
+    <a href="dashboard.html" class="back-btn">
+        ← Dashboard
+    </a>
+</header>
+
+
+<main class="container">
+
+
+    <section id="departmentPage">
+
+        <div class="page-title">
+            <h2>All Departments</h2>
+            <p>Select a department to view complete information.</p>
+        </div>
+
+        <div class="department-grid">
+
+            <div class="department-card"
+                 onclick="showDepartment('cse')">
+
+                <div class="dept-icon">💻</div>
+
+                <h3>Computer Science & Engineering</h3>
+
+                <p>Computer Science Department</p>
+
+                <span class="dept-code">CSE</span>
+            </div>
+
+
+            <div class="department-card"
+                 onclick="showDepartment('it')">
+
+                <div class="dept-icon">🌐</div>
+
+                <h3>Information Technology</h3>
+
+                <p>Information Technology Department</p>
+
+                <span class="dept-code">IT</span>
+            </div>
+
+
+            <div class="department-card"
+                 onclick="showDepartment('aids')">
+
+                <div class="dept-icon">🤖</div>
+
+                <h3>Artificial Intelligence & Data Science</h3>
+
+                <p>AI & Data Science Department</p>
+
+                <span class="dept-code">AIDS</span>
+            </div>
+
+
+            <div class="department-card"
+                 onclick="showDepartment('ece')">
+
+                <div class="dept-icon">📡</div>
+
+                <h3>Electronics & Communication Engineering</h3>
+
+                <p>Electronics Department</p>
+
+                <span class="dept-code">ECE</span>
+            </div>
+
+
+            <div class="department-card"
+                 onclick="showDepartment('eee')">
+
+                <div class="dept-icon">⚡</div>
+
+                <h3>Electrical & Electronics Engineering</h3>
+
+                <p>Electrical Engineering Department</p>
+
+                <span class="dept-code">EEE</span>
+            </div>
+
+
+            <div class="department-card"
+                 onclick="showDepartment('mech')">
+
+                <div class="dept-icon">⚙️</div>
+
+                <h3>Mechanical Engineering</h3>
+
+                <p>Mechanical Engineering Department</p>
+
+                <span class="dept-code">MECH</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    
+    <section id="detailsPage">
+
+        <button class="back-list" onclick="showDepartments()">
+            ← Back to Departments
+        </button>
+
+        <div class="details-box">
+
+            <div class="details-header">
+
+                <div class="details-icon" id="detailIcon">
+                    💻
+                </div>
+
+                <div>
+                    <h2 id="detailName">
+                        Computer Science & Engineering
+                    </h2>
+
+                    <p id="detailCode">
+                        Department Code: CSE
+                    </p>
+                </div>
+
+            </div>
+
+
+        
+            <h3 class="section-title">
+                📋 Department Information
+            </h3>
+
+            <div class="info-grid">
+
+                <div class="info-card">
+                    <span>🏫 Department Name</span>
+                    <strong id="infoName"></strong>
+                </div>
+
+                <div class="info-card">
+                    <span>🆔 Department Code</span>
+                    <strong id="infoCode"></strong>
+                </div>
+
+                <div class="info-card">
+                    <span>👨‍💼 Head of the Department</span>
+                    <strong id="infoHod"></strong>
+                </div>
+
+                <div class="info-card">
+                    <span>📧 Department Email ID</span>
+                    <strong id="infoEmail"></strong>
+                </div>
+
+                <div class="info-card">
+                    <span>📱 Department Phone Number</span>
+                    <strong id="infoPhone"></strong>
+                </div>
+
+                <div class="info-card">
+                    <span>📍 Office Location</span>
+                    <strong id="infoLocation"></strong>
+                </div>
+
+            </div>
+
+
+            
+            <h3 class="section-title">
+                📖 About the Department
+            </h3>
+
+            <div class="about" id="infoAbout"></div>
+
+
+        
+            <h3 class="section-title">
+                👩‍🏫 Department Staff Members
+            </h3>
+
+            <div class="staff-grid" id="staffList"></div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script>
+
+
+
+const departments = {
+
+    cse: {
+        name: "Computer Science & Engineering",
+        code: "CSE",
+        icon: "💻",
+        hod: "Dr. Rajesh Kumar",
+        email: "cse@college.edu",
+        phone: "+91 98765 43210",
+        location: "Block A - 2nd Floor",
+
+        about:
+        "The Department of Computer Science and Engineering provides quality education in programming, software development, artificial intelligence, data science and emerging technologies. The department focuses on developing students' technical knowledge, problem-solving skills, innovation and professional abilities.",
+
+        staff: [
+            ["Dr. Priya Sharma", "Professor"],
+            ["Mr. Arun Kumar", "Assistant Professor"],
+            ["Ms. Divya R", "Assistant Professor"],
+            ["Mr. Karthik S", "Associate Professor"],
+            ["Dr. Meena Devi", "Professor"]
+        ]
+    },
+
+
+    it: {
+        name: "Information Technology",
+        code: "IT",
+        icon: "🌐",
+        hod: "Dr. Anitha Devi",
+        email: "it@college.edu",
+        phone: "+91 98765 43211",
+        location: "Block B - 1st Floor",
+
+        about:
+        "The Information Technology department focuses on software development, networking, databases, web technologies, cloud computing and modern information systems. Students are trained to develop practical and industry-oriented technical skills.",
+
+        staff: [
+            ["Dr. Anitha Devi", "Professor"],
+            ["Mr. Suresh Kumar", "Assistant Professor"],
+            ["Ms. Nandhini R", "Assistant Professor"],
+            ["Mr. Vijay S", "Associate Professor"]
+        ]
+    },
+
+
+    aids: {
+        name: "Artificial Intelligence & Data Science",
+        code: "AIDS",
+        icon: "🤖",
+        hod: "Dr. Kavitha Raj",
+        email: "aids@college.edu",
+        phone: "+91 98765 43212",
+        location: "Block C - 2nd Floor",
+
+        about:
+        "The Artificial Intelligence and Data Science department focuses on artificial intelligence, machine learning, data analytics, deep learning and intelligent applications. The department encourages innovation, research and practical project development.",
+
+        staff: [
+            ["Dr. Kavitha Raj", "Professor"],
+            ["Mr. Hari Prasad", "Assistant Professor"],
+            ["Ms. Swetha M", "Assistant Professor"],
+            ["Dr. Arun Raj", "Associate Professor"]
+        ]
+    },
+
+
+    ece: {
+        name: "Electronics & Communication Engineering",
+        code: "ECE",
+        icon: "📡",
+        hod: "Dr. S. Kumar",
+        email: "ece@college.edu",
+        phone: "+91 98765 43213",
+        location: "Block D - 1st Floor",
+
+        about:
+        "The Electronics and Communication Engineering department provides education in electronics, communication systems, embedded systems, signal processing and modern technologies.",
+
+        staff: [
+            ["Dr. S. Kumar", "Professor"],
+            ["Ms. Priya S", "Assistant Professor"],
+            ["Mr. Manoj K", "Assistant Professor"]
+        ]
+    },
+
+
+    eee: {
+        name: "Electrical & Electronics Engineering",
+        code: "EEE",
+        icon: "⚡",
+        hod: "Dr. Ramesh Babu",
+        email: "eee@college.edu",
+        phone: "+91 98765 43214",
+        location: "Block E - Ground Floor",
+
+        about:
+        "The Electrical and Electronics Engineering department focuses on electrical systems, power electronics, control systems, electrical machines and renewable energy technologies.",
+
+        staff: [
+            ["Dr. Ramesh Babu", "Professor"],
+            ["Mr. Prakash R", "Assistant Professor"],
+            ["Ms. Lakshmi P", "Assistant Professor"]
+        ]
+    },
+
+
+    mech: {
+        name: "Mechanical Engineering",
+        code: "MECH",
+        icon: "⚙️",
+        hod: "Dr. Mohan Kumar",
+        email: "mech@college.edu",
+        phone: "+91 98765 43215",
+        location: "Block F - 1st Floor",
+
+        about:
+        "The Mechanical Engineering department provides education in engineering design, manufacturing, thermal engineering, robotics, materials and modern mechanical technologies.",
+
+        staff: [
+            ["Dr. Mohan Kumar", "Professor"],
+            ["Mr. Rajesh S", "Assistant Professor"],
+            ["Ms. Deepa K", "Assistant Professor"]
+        ]
+    }
+
+};
+
+
+
+
+function showDepartment(id) {
+
+    const dept = departments[id];
+
+    document.getElementById("departmentPage").style.display = "none";
+
+    document.getElementById("detailsPage").style.display = "block";
+
+
+    document.getElementById("detailIcon").textContent = dept.icon;
+
+    document.getElementById("detailName").textContent = dept.name;
+
+    document.getElementById("detailCode").textContent =
+        "Department Code: " + dept.code;
+
+
+    document.getElementById("infoName").textContent =
+        dept.name;
+
+    document.getElementById("infoCode").textContent =
+        dept.code;
+
+    document.getElementById("infoHod").textContent =
+        dept.hod;
+
+    document.getElementById("infoEmail").textContent =
+        dept.email;
+
+    document.getElementById("infoPhone").textContent =
+        dept.phone;
+
+    document.getElementById("infoLocation").textContent =
+        dept.location;
+
+    document.getElementById("infoAbout").textContent =
+        dept.about;
+
+
+    
+
+    const staffList = document.getElementById("staffList");
+
+    staffList.innerHTML = "";
+
+    dept.staff.forEach(function(staff) {
+
+        staffList.innerHTML += `
+            <div class="staff-card">
+
+                <div class="staff-photo">
+                    👩‍🏫
+                </div>
+
+                <h4>${staff[0]}</h4>
+
+                <p>${staff[1]}</p>
+
+            </div>
+        `;
+
+    });
+
+}
+
+
+
+
+function showDepartments() {
+
+    document.getElementById("detailsPage").style.display = "none";
+
+    document.getElementById("departmentPage").style.display = "block";
+
+}
+
+</script>
+
+</body>
+</html>

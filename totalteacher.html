@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total Teachers</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f6fb;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            font-size: 28px;
+            color: #25253d;
+        }
+
+        .total-count {
+            color: #777;
+            margin-bottom: 25px;
+            font-size: 16px;
+        }
+
+        .teacher-list {
+            list-style: none;
+        }
+
+        .teacher-list li {
+            padding: 15px 18px;
+            margin-bottom: 10px;
+            background: #f7f8fc;
+            border-radius: 10px;
+            font-size: 17px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .teacher-list li:hover {
+            background: #e9ecf8;
+            transform: translateX(5px);
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 25px;
+            text-decoration: none;
+            color: #333;
+            font-size: 15px;
+        }
+
+        .back-btn:hover {
+            color: #4f46e5;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <a href="dashboard.html" class="back-btn">
+            ← Back to Dashboard
+        </a>
+
+        <h1>👩‍🏫 Total Teachers</h1>
+
+        <p class="total-count">
+            Total Number of Teachers: <strong>10</strong>
+        </p>
+
+        <ul class="teacher-list">
+            <li>👩‍🏫 Dr. Lakshmi Priya</li>
+            <li>👨‍🏫 Mr. Rajesh Kumar</li>
+            <li>👩‍🏫 Mrs. Anitha Devi</li>
+            <li>👨‍🏫 Mr. Suresh Babu</li>
+            <li>👩‍🏫 Ms. Kavitha R</li>
+            <li>👨‍🏫 Mr. Prakash M</li>
+            <li>👩‍🏫 Dr. Meena S</li>
+            <li>👨‍🏫 Mr. Arun Kumar</li>
+            <li>👩‍🏫 Mrs. Divya N</li>
+            <li>👨‍🏫 Mr. Karthikeyan P</li>
+        </ul>
+
+    </div>
+
+</body>
+</html>

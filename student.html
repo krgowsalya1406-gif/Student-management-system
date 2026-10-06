@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Students</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f6fb;
+    color:#25253d;
+}
+
+
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:40px 20px;
+}
+
+
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.header h1{
+    font-size:32px;
+}
+
+.header p{
+    color:#777;
+    margin-top:6px;
+}
+
+
+
+.search-box{
+    background:white;
+    padding:15px 20px;
+    border-radius:14px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.06);
+    margin-bottom:25px;
+}
+
+.search-box input{
+    width:100%;
+    border:none;
+    outline:none;
+    font-size:16px;
+    padding:10px;
+}
+
+
+.student-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:18px;
+}
+
+.student-card{
+    background:white;
+    border-radius:16px;
+    padding:22px;
+    cursor:pointer;
+    box-shadow:0 5px 20px rgba(0,0,0,0.06);
+    transition:0.3s;
+}
+
+.student-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 12px 25px rgba(67,56,202,0.15);
+}
+
+.student-icon{
+    width:55px;
+    height:55px;
+    background:linear-gradient(135deg,#5b4df5,#63a4ff);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:26px;
+    margin-bottom:15px;
+}
+
+.student-card h3{
+    font-size:18px;
+}
+
+.student-card p{
+    color:#777;
+    font-size:14px;
+    margin-top:6px;
+}
+
+.view-text{
+    margin-top:15px;
+    color:#5146e5;
+    font-size:14px;
+    font-weight:bold;
+}
+
+
+
+
+.details-page{
+    display:none;
+}
+
+.back-btn{
+    border:none;
+    background:#eeeefe;
+    color:#5146e5;
+    padding:12px 18px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+    margin-bottom:25px;
+}
+
+
+
+.profile-card{
+    background:linear-gradient(135deg,#4338ca,#5d9cff);
+    border-radius:20px;
+    padding:35px;
+    color:white;
+    display:flex;
+    align-items:center;
+    gap:25px;
+    margin-bottom:25px;
+}
+
+.profile-photo{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    background:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:45px;
+}
+
+.profile-info h1{
+    font-size:28px;
+}
+
+.profile-info p{
+    margin-top:8px;
+    opacity:0.9;
+}
+
+
+
+.personal-card{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.06);
+}
+
+.personal-card h2{
+    margin-bottom:25px;
+}
+
+.details-grid{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.detail-box{
+    width:100%;
+}
+
+.detail-box{
+    background:#f7f8fc;
+    padding:18px;
+    border-radius:12px;
+}
+
+.detail-box span{
+    display:block;
+    color:#777;
+    font-size:13px;
+    margin-bottom:7px;
+}
+
+.detail-box strong{
+    font-size:15px;
+}
+
+.full{
+    grid-column:span 2;
+}
+
+
+
+@media(max-width:600px){
+
+    .details-grid{
+        grid-template-columns:1fr;
+    }
+
+    .full{
+        grid-column:span 1;
+    }
+
+    .profile-card{
+        flex-direction:column;
+        text-align:center;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="container">
+
+
+
+
+<div id="studentListPage">
+
+    <div class="header">
+
+        <div>
+            <h1>👨‍🎓 Students</h1>
+            <p>Select a student to view personal details</p>
+        </div>
+
+    </div>
+
+
+    
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="search"
+            placeholder="🔍 Search student name..."
+            onkeyup="searchStudent()"
+        >
+
+    </div>
+
+
+
+
+    <div class="student-list" id="studentList">
+
+
+        <div class="student-card"
+        onclick="showStudent(0)">
+
+            <div class="student-icon">👩‍🎓</div>
+
+            <h3>Gowsalya</h3>
+
+            <p>Student ID: STU001</p>
+
+            <div class="view-text">
+                View Details →
+            </div>
+
+        </div>
+
+
+        <div class="student-card"
+        onclick="showStudent(1)">
+
+            <div class="student-icon">👩‍🎓</div>
+
+            <h3>Priya</h3>
+
+            <p>Student ID: STU002</p>
+
+            <div class="view-text">
+                View Details →
+            </div>
+
+        </div>
+
+
+        <div class="student-card"
+        onclick="showStudent(2)">
+
+            <div class="student-icon">👨‍🎓</div>
+
+            <h3>Arun</h3>
+
+            <p>Student ID: STU003</p>
+
+            <div class="view-text">
+                View Details →
+            </div>
+
+        </div>
+
+
+        <div class="student-card"
+        onclick="showStudent(3)">
+
+            <div class="student-icon">👩‍🎓</div>
+
+            <h3>Kavya</h3>
+
+            <p>Student ID: STU004</p>
+
+            <div class="view-text">
+                View Details →
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+
+
+<div
+id="studentDetailsPage"
+class="details-page"
+>
+
+
+<button
+class="back-btn"
+onclick="goBack()"
+>
+← Back to Students
+</button>
+
+
+
+<div class="profile-card">
+
+    <div class="profile-photo">
+        👩‍🎓
+    </div>
+
+
+    <div class="profile-info">
+
+        <h1 id="studentName">
+            Student Name
+        </h1>
+
+        <p id="studentId">
+            Student ID
+        </p>
+
+    </div>
+
+</div>
+
+
+
+
+
+<div class="personal-card">
+
+    <h2>👤 Personal Details</h2>
+
+
+    <div class="details-grid">
+
+
+        <div class="detail-box">
+
+            <span>Student ID</span>
+
+            <strong id="detailId">
+            </strong>
+
+        </div>
+
+
+        <div class="detail-box">
+
+            <span>Full Name</span>
+
+            <strong id="detailName">
+            </strong>
+
+        </div>
+
+
+        <div class="detail-box">
+
+            <span>Date of Birth</span>
+
+            <strong id="detailDob">
+            </strong>
+
+        </div>
+
+
+        <div class="detail-box">
+
+            <span>Gender</span>
+
+            <strong id="detailGender">
+            </strong>
+
+        </div>
+
+
+        <div class="detail-box">
+
+            <span>Email</span>
+
+            <strong id="detailEmail">
+            </strong>
+
+        </div>
+
+
+        <div class="detail-box">
+
+            <span>Phone Number</span>
+
+            <strong id="detailPhone">
+            </strong>
+
+        </div>
+
+
+        <div class="detail-box full">
+
+            <span>Address</span>
+
+            <strong id="detailAddress">
+            </strong>
+
+        </div>
+
+
+        <div class="detail-box">
+
+            <span>Parent / Guardian Name</span>
+
+            <strong id="detailParent">
+            </strong>
+
+        </div>
+
+
+        <div class="detail-box">
+
+            <span>Parent / Guardian Phone</span>
+
+            <strong id="detailParentPhone">
+            </strong>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<script>
+
+
+
+
+const students = [
+
+    {
+        id:"STU001",
+        name:"Gowsalya",
+        dob:"01 January 2006",
+        gender:"Female",
+        email:"gowsalya@email.com",
+        phone:"9876543210",
+        address:"Chennai, Tamil Nadu",
+        parent:"Kumar",
+        parentPhone:"9876500000"
+    },
+
+    {
+        id:"STU002",
+        name:"Priya",
+        dob:"12 May 2006",
+        gender:"Female",
+        email:"priya@email.com",
+        phone:"9876543211",
+        address:"Coimbatore, Tamil Nadu",
+        parent:"Ramesh",
+        parentPhone:"9876500001"
+    },
+
+    {
+        id:"STU003",
+        name:"Arun",
+        dob:"10 March 2006",
+        gender:"Male",
+        email:"arun@email.com",
+        phone:"9876543212",
+        address:"Madurai, Tamil Nadu",
+        parent:"Suresh",
+        parentPhone:"9876500002"
+    },
+
+    {
+        id:"STU004",
+        name:"Kavya",
+        dob:"22 August 2007",
+        gender:"Female",
+        email:"kavya@email.com",
+        phone:"9876543213",
+        address:"Trichy, Tamil Nadu",
+        parent:"Murugan",
+        parentPhone:"9876500003"
+    }
+
+];
+
+
+
+function showStudent(index){
+
+    const student = students[index];
+
+
+    document.getElementById("studentName").innerText =
+    student.name;
+
+
+    document.getElementById("studentId").innerText =
+    student.id;
+
+
+    document.getElementById("detailId").innerText =
+    student.id;
+
+
+    document.getElementById("detailName").innerText =
+    student.name;
+
+
+    document.getElementById("detailDob").innerText =
+    student.dob;
+
+
+    document.getElementById("detailGender").innerText =
+    student.gender;
+
+
+    document.getElementById("detailEmail").innerText =
+    student.email;
+
+
+    document.getElementById("detailPhone").innerText =
+    student.phone;
+
+
+    document.getElementById("detailAddress").innerText =
+    student.address;
+
+
+    document.getElementById("detailParent").innerText =
+    student.parent;
+
+
+    document.getElementById("detailParentPhone").innerText =
+    student.parentPhone;
+
+
+    document.getElementById("studentListPage").style.display =
+    "none";
+
+
+    document.getElementById("studentDetailsPage").style.display =
+    "block";
+
+}
+
+
+
+
+
+function goBack(){
+
+    document.getElementById("studentDetailsPage").style.display =
+    "none";
+
+
+    document.getElementById("studentListPage").style.display =
+    "block";
+
+}
+
+
+
+
+function searchStudent(){
+
+    let input =
+    document.getElementById("search")
+    .value
+    .toLowerCase();
+
+
+    let cards =
+    document.querySelectorAll(".student-card");
+
+
+    cards.forEach(function(card){
+
+        let name =
+        card.querySelector("h3")
+        .innerText
+        .toLowerCase();
+
+
+        if(name.includes(input)){
+
+            card.style.display =
+            "block";
+
+        }
+
+        else{
+
+            card.style.display =
+            "none";
+
+        }
+
+    });
+
+}
+
+
+</script>
+
+</body>
+</html>

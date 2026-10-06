@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Teachers</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f6fb;
+    color:#25253d;
+}
+
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:40px 20px;
+}
+
+
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.header h1{
+    font-size:32px;
+}
+
+.header p{
+    color:#777;
+    margin-top:6px;
+}
+
+
+.search-box{
+    background:white;
+    padding:15px 20px;
+    border-radius:14px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.06);
+    margin-bottom:25px;
+}
+
+.search-box input{
+    width:100%;
+    border:none;
+    outline:none;
+    font-size:16px;
+    padding:10px;
+}
+
+
+
+.teacher-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:18px;
+}
+
+.teacher-card{
+    background:white;
+    border-radius:16px;
+    padding:22px;
+    cursor:pointer;
+    box-shadow:0 5px 20px rgba(0,0,0,0.06);
+    transition:0.3s;
+}
+
+.teacher-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 12px 25px rgba(67,56,202,0.15);
+}
+
+.teacher-icon{
+    width:55px;
+    height:55px;
+    background:linear-gradient(135deg,#5b4df5,#63a4ff);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:26px;
+    margin-bottom:15px;
+}
+
+.teacher-card h3{
+    font-size:18px;
+}
+
+.teacher-card p{
+    color:#777;
+    font-size:14px;
+    margin-top:6px;
+}
+
+.view-text{
+    margin-top:15px;
+    color:#5146e5;
+    font-size:14px;
+    font-weight:bold;
+}
+
+
+.details-page{
+    display:none;
+}
+
+.back-btn{
+    border:none;
+    background:#eeeefe;
+    color:#5146e5;
+    padding:12px 18px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+    margin-bottom:25px;
+}
+
+
+
+.profile-card{
+    background:linear-gradient(135deg,#4338ca,#5d9cff);
+    border-radius:20px;
+    padding:35px;
+    color:white;
+    display:flex;
+    align-items:center;
+    gap:25px;
+    margin-bottom:25px;
+}
+
+.profile-photo{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    background:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:45px;
+}
+
+.profile-info h1{
+    font-size:28px;
+}
+
+.profile-info p{
+    margin-top:8px;
+    opacity:0.9;
+}
+
+
+
+.personal-card{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.06);
+}
+
+.personal-card h2{
+    margin-bottom:25px;
+}
+
+.details-grid{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.detail-box{
+    width:100%;
+    background:#f7f8fc;
+    padding:18px;
+    border-radius:12px;
+}
+
+.detail-box span{
+    display:block;
+    color:#777;
+    font-size:13px;
+    margin-bottom:7px;
+}
+
+.detail-box strong{
+    font-size:15px;
+}
+
+
+
+@media(max-width:600px){
+
+    .profile-card{
+        flex-direction:column;
+        text-align:center;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+
+
+<div id="teacherListPage">
+
+    <div class="header">
+
+        <div>
+            <h1>👨‍🏫 Teachers</h1>
+            <p>Select a teacher to view personal details</p>
+        </div>
+
+    </div>
+
+
+    
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="search"
+            placeholder="🔍 Search teacher name..."
+            onkeyup="searchTeacher()"
+        >
+
+    </div>
+
+
+    
+
+    <div class="teacher-list" id="teacherList">
+
+
+        <div class="teacher-card"
+        onclick="showTeacher(0)">
+
+            <div class="teacher-icon">👩‍🏫</div>
+
+            <h3>Dr. Meena</h3>
+
+            <p>Teacher ID: TCH001</p>
+
+            <div class="view-text">
+                View Details →
+            </div>
+
+        </div>
+
+
+        <div class="teacher-card"
+        onclick="showTeacher(1)">
+
+            <div class="teacher-icon">👨‍🏫</div>
+
+            <h3>Mr. Kumar</h3>
+
+            <p>Teacher ID: TCH002</p>
+
+            <div class="view-text">
+                View Details →
+            </div>
+
+        </div>
+
+
+        <div class="teacher-card"
+        onclick="showTeacher(2)">
+
+            <div class="teacher-icon">👩‍🏫</div>
+
+            <h3>Mrs. Priya</h3>
+
+            <p>Teacher ID: TCH003</p>
+
+            <div class="view-text">
+                View Details →
+            </div>
+
+        </div>
+
+
+        <div class="teacher-card"
+        onclick="showTeacher(3)">
+
+            <div class="teacher-icon">👨‍🏫</div>
+
+            <h3>Mr. Arun</h3>
+
+            <p>Teacher ID: TCH004</p>
+
+            <div class="view-text">
+                View Details →
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+
+<div
+id="teacherDetailsPage"
+class="details-page"
+>
+
+    <button
+    class="back-btn"
+    onclick="goBack()"
+    >
+    ← Back to Teachers
+    </button>
+
+
+    
+
+    <div class="profile-card">
+
+        <div class="profile-photo">
+            👨‍🏫
+        </div>
+
+        <div class="profile-info">
+
+            <h1 id="teacherName">
+                Teacher Name
+            </h1>
+
+            <p id="teacherId">
+                Teacher ID
+            </p>
+
+        </div>
+
+    </div>
+
+
+    
+
+    <div class="personal-card">
+
+        <h2>👤 Personal Details</h2>
+
+
+        <div class="details-grid">
+
+
+            <div class="detail-box">
+
+                <span>Teacher ID</span>
+
+                <strong id="detailId"></strong>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <span>Full Name</span>
+
+                <strong id="detailName"></strong>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <span>Date of Birth</span>
+
+                <strong id="detailDob"></strong>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <span>Gender</span>
+
+                <strong id="detailGender"></strong>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <span>Email</span>
+
+                <strong id="detailEmail"></strong>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <span>Phone Number</span>
+
+                <strong id="detailPhone"></strong>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <span>Department</span>
+
+                <strong id="detailDepartment"></strong>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <span>Designation</span>
+
+                <strong id="detailDesignation"></strong>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <span>Qualification</span>
+
+                <strong id="detailQualification"></strong>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <span>Experience</span>
+
+                <strong id="detailExperience"></strong>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <span>Address</span>
+
+                <strong id="detailAddress"></strong>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<script>
+
+
+const teachers = [
+
+    {
+        id:"TCH001",
+        name:"Dr. Meena",
+        dob:"15 January 1985",
+        gender:"Female",
+        email:"meena@college.edu",
+        phone:"9876543210",
+        department:"Computer Science and Engineering",
+        designation:"Assistant Professor",
+        qualification:"Ph.D. in Computer Science",
+        experience:"10 Years",
+        address:"Nagercoil, Tamil Nadu"
+    },
+
+    {
+        id:"TCH002",
+        name:"Mr. Kumar",
+        dob:"20 March 1982",
+        gender:"Male",
+        email:"kumar@college.edu",
+        phone:"9876543211",
+        department:"Electronics and Communication Engineering",
+        designation:"Associate Professor",
+        qualification:"M.E. in ECE",
+        experience:"12 Years",
+        address:"Kanyakumari, Tamil Nadu"
+    },
+
+    {
+        id:"TCH003",
+        name:"Mrs. Priya",
+        dob:"10 July 1987",
+        gender:"Female",
+        email:"priya@college.edu",
+        phone:"9876543212",
+        department:"Information Technology",
+        designation:"Assistant Professor",
+        qualification:"M.E. in Information Technology",
+        experience:"8 Years",
+        address:"Coimbatore, Tamil Nadu"
+    },
+
+    {
+        id:"TCH004",
+        name:"Mr. Arun",
+        dob:"25 November 1980",
+        gender:"Male",
+        email:"arun@college.edu",
+        phone:"9876543213",
+        department:"Mechanical Engineering",
+        designation:"Professor",
+        qualification:"M.E. in Mechanical Engineering",
+        experience:"15 Years",
+        address:"Madurai, Tamil Nadu"
+    }
+
+];
+
+
+function showTeacher(index){
+
+    const teacher = teachers[index];
+
+    document.getElementById("teacherName").innerText =
+    teacher.name;
+
+    document.getElementById("teacherId").innerText =
+    teacher.id;
+
+    document.getElementById("detailId").innerText =
+    teacher.id;
+
+    document.getElementById("detailName").innerText =
+    teacher.name;
+
+    document.getElementById("detailDob").innerText =
+    teacher.dob;
+
+    document.getElementById("detailGender").innerText =
+    teacher.gender;
+
+    document.getElementById("detailEmail").innerText =
+    teacher.email;
+
+    document.getElementById("detailPhone").innerText =
+    teacher.phone;
+
+    document.getElementById("detailDepartment").innerText =
+    teacher.department;
+
+    document.getElementById("detailDesignation").innerText =
+    teacher.designation;
+
+    document.getElementById("detailQualification").innerText =
+    teacher.qualification;
+
+    document.getElementById("detailExperience").innerText =
+    teacher.experience;
+
+    document.getElementById("detailAddress").innerText =
+    teacher.address;
+
+
+    document.getElementById("teacherListPage").style.display =
+    "none";
+
+    document.getElementById("teacherDetailsPage").style.display =
+    "block";
+
+}
+
+function goBack(){
+
+    document.getElementById("teacherDetailsPage").style.display =
+    "none";
+
+    document.getElementById("teacherListPage").style.display =
+    "block";
+
+}
+
+
+
+
+function searchTeacher(){
+
+    let input =
+    document.getElementById("search")
+    .value
+    .toLowerCase();
+
+    let cards =
+    document.querySelectorAll(".teacher-card");
+
+
+    cards.forEach(function(card){
+
+        let name =
+        card.querySelector("h3")
+        .innerText
+        .toLowerCase();
+
+
+        if(name.includes(input)){
+
+            card.style.display =
+            "block";
+
+        }
+
+        else{
+
+            card.style.display =
+            "none";
+
+        }
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
