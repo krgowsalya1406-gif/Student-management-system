@@ -220,25 +220,7 @@ Full Stack Developer | Student | Tech Enthusiast
 
 Interested in building innovative web applications and practical digital solutions.
 
-## 📬 Connect With Me
 
-- GitHub: [Your GitHub Profile](https://github.com/your-username)
-- LinkedIn: [Your LinkedIn Profile](https://linkedin.com/)
-
-## 📄 License
-
-This project is licensed under the MIT License. You are free to use, modify, and distribute it according to the license terms.
-
----
-
-## ⭐ Support
-
-If you find this project useful or interesting:
-
-- Give this repository a ⭐ Star.
-- Fork the repository.
-- Explore the source code.
-- Share your feedback and suggestions.
 
 ---
 
