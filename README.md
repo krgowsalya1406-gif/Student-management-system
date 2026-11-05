@@ -88,29 +88,7 @@ The dashboard provides a centralized overview of institutional activities.
 - Fees Collection: ₹8.5L
 - Upcoming Exams: 5
 
-*Note: These are sample dashboard values.*
 
-## 📸 Project Screenshots
-
-Add screenshots of your actual project interface.
-
-### 1. Dashboard
-![Dashboard](screenshots/dashboard.png)
-
-### 2. Student Management
-![Student Management](screenshots/students.png)
-
-### 3. Teacher Management
-![Teacher Management](screenshots/teachers.png)
-
-### 4. Course Management
-![Course Management](screenshots/courses.png)
-
-### 5. Attendance Management
-![Attendance](screenshots/attendance.png)
-
-### 6. Fee Management
-![Fee Management](screenshots/fees.png)
 
 ## 🛠️ Technologies Used
 
@@ -124,7 +102,7 @@ Add screenshots of your actual project interface.
 | Git | Version control |
 | GitHub | Project hosting |
 
-*Update the backend and database technologies according to your actual implementation.*
+*
 
 ## ⚙️ How It Works
 
