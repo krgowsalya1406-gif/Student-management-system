@@ -190,13 +190,6 @@ Through this project, I gained practical experience in:
 - Responsive web design.
 - Project development and version control.
 
-## 👩‍💻 Author
-
-**K.R. Gowsalya**
-
-Full Stack Developer | Student | Tech Enthusiast
-
-Interested in building innovative web applications and practical digital solutions.
 
 
 
