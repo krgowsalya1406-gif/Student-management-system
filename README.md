@@ -104,15 +104,7 @@ The dashboard provides a centralized overview of institutional activities.
 
 *
 
-## ⚙️ How It Works
 
-1. The user opens the Student Management System.
-2. The dashboard displays important academic statistics.
-3. Student information can be added, updated, viewed, and managed.
-4. Faculty and course details can be maintained.
-5. Attendance and fee records can be tracked.
-6. Examination information and academic results can be managed.
-7. The dashboard provides an organized overview of the available information.
 
 ## 🚀 Getting Started
 
