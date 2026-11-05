@@ -102,51 +102,6 @@ The dashboard provides a centralized overview of institutional activities.
 | Git | Version control |
 | GitHub | Project hosting |
 
-*
-
-
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Web browser (Chrome, Firefox, or Edge).
-- Visual Studio Code.
-- Git installed on your system.
-- Backend and database environment, if required.
-
-### Installation
-
-**Step 1: Clone the repository**
-
-```bash
-git clone https://github.com/your-username/student-management-system.git
-```
-
-**Step 2: Navigate to the project directory**
-
-```bash
-cd student-management-system
-```
-
-**Step 3: Open the project**
-
-```bash
-code .
-```
-
-**Step 4: Run the application**
-
-Open `index.html` using Live Server for a frontend-only version, or start the configured backend server if your project includes one.
-
-## 💡 What Makes This Project Unique?
-
-- Combines multiple academic activities in one platform.
-- Provides centralized access to educational records.
-- Simplifies daily administrative operations.
-- Offers a clean and organized dashboard.
-- Reduces dependency on traditional paperwork.
-- Designed with scalability and future improvements in mind.
 
 ## 🔮 Future Enhancements
 
