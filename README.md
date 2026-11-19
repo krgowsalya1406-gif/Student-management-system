@@ -156,14 +156,6 @@ CampusNexus aims to bring that ecosystem together through technology — making 
 
 ### K.R. Gowsalya
 
-
-
-<a href="https://github.com/krgowsalya1406-gif">
-<img src="https://img.shields.io/badge/EXPLORE%20MY%20GITHUB-181717?style=for-the-badge&logo=github&logoColor=white"/>
-</a>
-
-<br/><br/>
-
 **Designed with 💜 and developed with passion.**
 
 </div>
