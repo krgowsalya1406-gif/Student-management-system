@@ -14,7 +14,7 @@
 
 <img src="https://img.shields.io/badge/PROJECT-CampusNexus-6366F1?style=for-the-badge"/>
 <img src="https://img.shields.io/badge/DOMAIN-Education-06B6D4?style=for-the-badge"/>
-<img src="https://img.shields.io/badge/STATUS-Active-22C55E?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/STATUS-under development-22C55E?style=for-the-badge"/>
 
 </div>
 
