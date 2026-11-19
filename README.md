@@ -156,11 +156,7 @@ CampusNexus aims to bring that ecosystem together through technology — making 
 
 ### K.R. Gowsalya
 
-**Web Developer | AI/ML Enthusiast | Technology Explorer**
 
-Building digital experiences that turn everyday challenges into smarter solutions.
-
-*Curious mind. Creative ideas. Continuous innovation.*
 
 <a href="https://github.com/krgowsalya1406-gif">
 <img src="https://img.shields.io/badge/EXPLORE%20MY%20GITHUB-181717?style=for-the-badge&logo=github&logoColor=white"/>
